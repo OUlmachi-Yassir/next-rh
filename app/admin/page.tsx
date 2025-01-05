@@ -18,9 +18,7 @@ interface Application {
   email: string;
   cvPath: string;
 }
-interface JobFormProps {
-  onJobCreated: (newJob: Job) => void;
-}
+
 
 export default function Dashboard() {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -43,7 +41,7 @@ export default function Dashboard() {
         alert("Invalid token format or role not found.");
       }
     }
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     const fetchJobs = async () => {
